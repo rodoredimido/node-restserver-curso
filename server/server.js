@@ -2,6 +2,7 @@ require('./config/config')
 
 
 const express = require('express');
+const path = require('path')
 const mongoose = require('mongoose');
 
 // mongoose.connect('mongodb://localhost/my_database');
@@ -17,6 +18,10 @@ app.use(bodyParser.json())
 
 // gonfiguracion global de rutas
 app.use(require('./routes/index'));
+
+app.use(express.static(path.resolve(__dirname, '../public')));
+
+console.log(path.resolve(__dirname, '../public'));
 
 
 

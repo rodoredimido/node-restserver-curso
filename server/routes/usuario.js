@@ -14,9 +14,9 @@ const app = express();
 
 
 // peticion get 
-app.get('/', function(req, res) {
-    res.json('Hello World');
-});
+// app.get('/', function(req, res) {
+//     res.json('Hello World');
+// });
 
 app.get('/usuarios', verificaToken, (req, res) => {
     // return res.json({
