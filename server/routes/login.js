@@ -152,7 +152,7 @@ app.post('/google', async(req, res) => {
                 }
 
                 let token = jwt.sign({
-                    usuario: usuairoDB
+                    usuario: usuarioDB
                 }, process.env.SEED, { expiresIn: process.env.CADUCIDAD_TOKEN });
 
                 return res.json({
