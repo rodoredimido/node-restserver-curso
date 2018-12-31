@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+mongoose.set('useCreateIndex', true);
 const Schema = mongoose.Schema;
 
 let categoriaSchema = new Schema({

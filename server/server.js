@@ -26,7 +26,7 @@ console.log(path.resolve(__dirname, '../public'));
 
 
 
-mongoose.connect(process.env.URLDB, (err, res) => {
+mongoose.connect(process.env.URLDB, { useNewUrlParser: true }, (err, res) => {
 
     if (err) throw err;
 

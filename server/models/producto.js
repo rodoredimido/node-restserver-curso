@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+
+mongoose.set('useCreateIndex', true);
 var Schema = mongoose.Schema;
 
 
@@ -19,6 +21,10 @@ var productoSchema = new Schema({
         type: Boolean,
         required: true,
         default: true
+    },
+    img: {
+        type: String,
+        required: false
     },
     categoria: {
         type: Schema.Types.ObjectId,
