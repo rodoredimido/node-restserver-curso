@@ -101,27 +101,32 @@ function imagenUsuario(id, res, nombreArchivo) {
             });
         }
 
-        // borrarArchivo(usuarioDB.img, 'usuarios');
+        borrarArchivo(usuarioDB.img, 'usuarios');
         // let pathImagen = path.resolve(__dirname, `../../uploads/usuarios/${ usuarioDB.img }`);
         // if (fs.existsSync(pathImagen)) {
         //     fs.unlinkSync(pathImagen)
         // }
 
         usuarioDB.img = nombreArchivo;
-        usuarioDB.save((err, usuarioGuardado) => {
-            if (err) {
-                borrarArchivo(productoDB.img, 'usuarios');
-                return res.status(500).json({
-                    ok: false,
-                    err
-                });
-            }
+        // usuarioDB.save((err, usuarioGuardado) => {
+        //     if (err) {
+        //         borrarArchivo(productoDB.img, 'usuarios');
+        //         return res.status(500).json({
+        //             ok: false,
+        //             err
+        //         });
+        //     }
 
-            res.json({
-                ok: true,
-                usuario: usuarioGuardado,
-                img: nombreArchivo
-            });
+        //     res.json({
+        //         ok: true,
+        //         usuario: usuarioGuardado,
+        //         img: nombreArchivo
+        //     });
+        // });
+        res.json({
+            ok: true,
+            usuario: usuarioGuardado,
+            img: nombreArchivo
         });
     });
 }
