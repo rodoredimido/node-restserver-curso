@@ -61,7 +61,12 @@ app.put('/upload/:tipo/:id', function(req, res) {
     }
 
     let nombreArchivo = `${ id }-${ new Date().getMilliseconds() }.${ extencion }`;
-    archivo.mv(`/uploads/${ tipo }/${ nombreArchivo }`, (err) => {
+
+
+    let pathArchivo = path.resolve(__dirname, `../../uploads/${ tipo }/${ nombreArchivo }`);
+
+    // archivo.mv(`/uploads/${ tipo }/${ nombreArchivo }`, (err) => {
+    archivo.mv(pathArchivo, (err) => {
         if (err)
             return res.status(500).json({
                 ok: false,
