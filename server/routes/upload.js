@@ -101,7 +101,7 @@ function imagenUsuario(id, res, nombreArchivo) {
             });
         }
 
-        borrarArchivo(usuarioDB.img, 'usuarios');
+        // borrarArchivo(usuarioDB.img, 'usuarios');
         // let pathImagen = path.resolve(__dirname, `../../uploads/usuarios/${ usuarioDB.img }`);
         // if (fs.existsSync(pathImagen)) {
         //     fs.unlinkSync(pathImagen)
