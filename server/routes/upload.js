@@ -61,7 +61,7 @@ app.put('/upload/:tipo/:id', function(req, res) {
     }
 
     let nombreArchivo = `${ id }-${ new Date().getMilliseconds() }.${ extencion }`;
-    archivo.mv(`uploads/${ tipo }/${ nombreArchivo }`, (err) => {
+    archivo.mv(`.uploads/${ tipo }/${ nombreArchivo }`, (err) => {
         if (err)
             return res.status(500).json({
                 ok: false,
@@ -108,25 +108,20 @@ function imagenUsuario(id, res, nombreArchivo) {
         // }
 
         usuarioDB.img = nombreArchivo;
-        // usuarioDB.save((err, usuarioGuardado) => {
-        //     if (err) {
-        //         borrarArchivo(productoDB.img, 'usuarios');
-        //         return res.status(500).json({
-        //             ok: false,
-        //             err
-        //         });
-        //     }
+        usuarioDB.save((err, usuarioGuardado) => {
+            if (err) {
+                borrarArchivo(productoDB.img, 'usuarios');
+                return res.status(500).json({
+                    ok: false,
+                    err
+                });
+            }
 
-        //     res.json({
-        //         ok: true,
-        //         usuario: usuarioGuardado,
-        //         img: nombreArchivo
-        //     });
-        // });
-        res.json({
-            ok: true,
-            usuario: usuarioGuardado,
-            img: nombreArchivo
+            res.json({
+                ok: true,
+                usuario: usuarioGuardado,
+                img: nombreArchivo
+            });
         });
     });
 }
